@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styling/Projects.css';
 import PartyFinder from './projects/PartyFinder';
 import ChatReader from './projects/TwitchChatReader';
@@ -23,10 +23,16 @@ const navItems = [
 function Projects() {
     const [activeComponent, setActiveComponent] = useState('home');
     const [displayKey, setDisplayKey] = useState(0);
+    const contentRef = useRef(null);
 
     const handleNav = (key) => {
         setActiveComponent(key);
         setDisplayKey(k => k + 1);
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                contentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        }
     };
 
     const renderContent = () => {
@@ -56,7 +62,7 @@ function Projects() {
                     </button>
                 ))}
             </div>
-            <div key={displayKey} className='project-display'>
+            <div key={displayKey} className='project-display' ref={contentRef}>
                 {renderContent()}
             </div>
         </div>

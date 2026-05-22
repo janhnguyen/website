@@ -128,7 +128,7 @@
         display: flex;
     }
 
-    .nav {
+    .header .nav {
         display: none;
         position: absolute;
         top: 100%;
@@ -143,16 +143,16 @@
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
-    .nav.open {
+    .header .nav.open {
         display: flex;
     }
 
-    .nav a {
+    .header .nav a {
         padding: 12px 16px;
         font-size: 1rem;
     }
 
-    .nav a::after {
+    .header .nav a::after {
         display: none;
     }
 
