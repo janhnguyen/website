@@ -464,7 +464,61 @@
     color: var(--accent-cyan);
 }
 
-@media (max-width: 680px) {
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        padding: 100px 6% 60px;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-left {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .about-right {
+        order: -1;
+    }
+
+    .about-selfie {
+        height: 200px;
+        width: 200px;
+    }
+
+    .skills-container {
+        justify-content: flex-start;
+    }
+
+    .experience-section,
+    .research-section {
+        padding: 60px 6% 70px;
+    }
+
+    .exp-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .exp-card-body {
+        min-width: 0;
+    }
+
+    .exp-photo-strip {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .exp-photo-thumb {
+        flex-shrink: 0;
+    }
+
     .research-grid {
         grid-template-columns: 1fr;
     }

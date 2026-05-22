@@ -99,6 +99,20 @@
     background: var(--bg-card);
 }
 
+/* ── Mobile ── */
+
+@media (max-width: 560px) {
+    .contact-links {
+        gap: 14px;
+    }
+
+    .contact-card {
+        padding: 22px 28px;
+        width: calc(50% - 7px);
+        min-width: 130px;
+    }
+}
+
 .contact-icons {
     width: 40px;
     height: 40px;

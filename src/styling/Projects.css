@@ -333,4 +333,73 @@
 .kbd-lightbox-prev { left: -52px; }
 .kbd-lightbox-next { right: -52px; }
 
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+        padding-top: 70px;
+    }
+
+    .project-side-nav {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 12px;
+        gap: 6px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .project-side-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .project-side-nav-title {
+        display: none;
+    }
+
+    .project-side-button {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .project-side-button:hover {
+        transform: none;
+    }
+
+    .project-display {
+        padding: 28px 20px 48px;
+    }
+
+    .kbd-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kbd-lightbox-prev { left: 8px; }
+    .kbd-lightbox-next { right: 8px; }
+
+    .kbd-lightbox-close {
+        top: 8px;
+        right: 8px;
+    }
+
+    .proj-bullets,
+    .proj-body {
+        max-width: 100%;
+    }
+
+    .proj-hobby-note {
+        max-width: 100%;
+    }
+}
+
 
