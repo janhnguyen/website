@@ -1,12 +1,12 @@
-# Jason Nguyen — Personal Portfolio
+# Personal Portfolio
 
-Personal portfolio website built with React. Features a home page with a hero section, work experience timeline, and research projects, a projects/hobbies showcase with a sidebar navigator, and a contact page.
+Personal portfolio website built with React. Features a home page with a brief overview, work experience timeline, and research projects, a projects/hobbies showcase with a sidebar navigator, and a contact page.
 
 ## Pages
 
-- **Home** — intro, typed role animation, skills, work experience timeline, research projects
-- **Projects** — sidebar-navigated project and hobby writeups
-- **Contact** — links to email, GitHub, LinkedIn, and Twitch
+- **Home** - intro, typed role animation, skills, work experience timeline, research projects
+- **Projects** - sidebar-navigated project and hobby writeups
+- **Contact** - links to email, GitHub, LinkedIn, and Twitch
 
 ## Features
 
