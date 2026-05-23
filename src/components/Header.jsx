@@ -41,9 +41,10 @@ function Header() {
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
             <div className="logo" onClick={() => scrollTo('home')} style={{ cursor: 'pointer' }}>Jason Nguyen</div>
             <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-                <a href="#home"     onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
-                <a href="#projects" onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
-                <a href="#contact"  onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
+                <a href="#home"       onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
+                <a href="#experience" onClick={e => { e.preventDefault(); scrollTo('experience'); }}>Experience</a>
+                <a href="#projects"   onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
+                <a href="#contact"    onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
                 <button
                     className="theme-toggle"
                     onClick={() => setDark(d => !d)}

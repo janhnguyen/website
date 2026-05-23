@@ -208,7 +208,7 @@ function Home() {
             </div>
 
             {/* ── Work Experience ── */}
-            <section className='experience-section'>
+            <section id='experience' className='experience-section'>
                 <div className='experience-inner'>
                     <h2 className='exp-section-heading'>Work Experience</h2>
                     <div className='timeline'>
