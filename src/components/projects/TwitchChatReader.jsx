@@ -28,7 +28,7 @@ function TwitchChatReader() {
             <div className='proj-hobby-note'>
                 <span className='proj-hobby-icon'>🎮</span>
                 <p>
-                    Built this to manage my own Twitch channel, <strong>doranis</strong>. Reached the top 0.2% of all
+                    Built this to manage my own Twitch channel. Reached the top 0.2% of all
                     Twitch streams in terms of metrics within a few months of going live.
                 </p>
             </div>

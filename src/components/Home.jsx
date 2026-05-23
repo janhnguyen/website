@@ -21,7 +21,7 @@ const research = [
     {
         title: 'Large-Scale Spotify Track Popularity Analysis with PySpark & ML',
         tags: ['Python', 'PySpark', 'HDFS', 'Random Forest', 'scikit-learn'],
-        description: 'Designed and executed a large-scale data analysis and ML pipeline on 97,624 Spotify tracks using PySpark on HDFS. Built a Random Forest Regressor to predict song popularity from audio features, improving R² by 41% (0.17 → 0.24) through hyperparameter tuning via 3-fold cross-validation. Performed genre popularity distribution analysis across 114 genres and audio feature significance testing (Welch\'s t-test, Cohen\'s d) across six popularity tiers — identifying acousticness and danceability as the strongest predictors of viral performance.',
+        description: 'Designed and executed a large-scale data analysis and ML pipeline on 97,624 Spotify tracks using PySpark on HDFS. Built a Random Forest Regressor to predict song popularity from audio features, improving R² by 41% (0.17 → 0.24) through hyperparameter tuning via 3-fold cross-validation. Performed genre popularity distribution analysis across 114 genres and audio feature significance testing (Welch\'s t-test, Cohen\'s d) across six popularity tiers.',
         reportUrl: '/spotifyAnalysis.pdf',
     },
     {
@@ -33,6 +33,16 @@ const research = [
 ];
 
 const experience = [
+    {
+        company: 'FedEx',
+        role: 'Trade Operations Analyst',
+        period: 'January 2026 – May 2026',
+        bullets: [
+            'Built Excel automation workflows to reduce manual customs processing time by 30%.',
+            'Developed reporting dashboards to track shipment exception trends and operational metrics.',
+            'Utilized SQL queries, Excel-based reporting, and cross-platform operational systems to streamline brokerage processing, monitor shipment status, and support time-sensitive customs clearance operations.'
+        ],
+    },
     {
         company: 'ARISE Adaptive Design',
         role: 'Adaptive Design Intern',
@@ -47,7 +57,7 @@ const experience = [
     {
         company: 'Randstad',
         role: 'Data Analyst Intern',
-        period: 'February 2023 – April 2024',
+        period: 'January 2024 – April 2024',
         bullets: [
             'Cleaned and validated datasets of 9,000 records using Excel and SQL, identifying and resolving 4 categories of recurring data entry errors across reporting pipelines.',
             'Built 2 standardized reporting templates that automated manual aggregation steps, reducing report turnaround time by 1 hour per cycle.',
@@ -144,7 +154,7 @@ function Home() {
     ];
 
     return (
-        <div className='home-wrapper'>
+        <div id='home' className='home-wrapper'>
             {/* ── Hero ── */}
             <div className='about-container'>
                 <div className='about-left'>
@@ -231,7 +241,7 @@ function Home() {
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >
-                                    View Report →
+                                    View Report
                                 </a>
                             </div>
                         ))}

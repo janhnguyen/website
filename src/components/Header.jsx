@@ -29,13 +29,21 @@ function Header() {
         return () => document.removeEventListener('click', close);
     }, [menuOpen]);
 
+    const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+        setMenuOpen(false);
+    };
+
     return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-            <div className="logo">Jason Nguyen</div>
+            <div className="logo" onClick={() => scrollTo('home')} style={{ cursor: 'pointer' }}>Jason Nguyen</div>
             <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-                <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
-                <a href="/projects" onClick={() => setMenuOpen(false)}>Projects</a>
-                <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
+                <a href="#home"     onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
+                <a href="#projects" onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
+                <a href="#contact"  onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
                 <button
                     className="theme-toggle"
                     onClick={() => setDark(d => !d)}

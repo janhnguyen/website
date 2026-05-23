@@ -14,7 +14,7 @@ const links = [
 
 function Contact() {
     return (
-        <div className='contact'>
+        <div id='contact' className='contact'>
             <h1 className='contact-title'>Get In Touch</h1>
             <p className='contact-subtitle'>Feel free to reach out through any of these platforms</p>
             <div className='contact-links'>
