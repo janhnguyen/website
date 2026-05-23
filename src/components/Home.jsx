@@ -168,9 +168,9 @@ function Home() {
     }, [displayed, isDeleting, roleIndex]);
 
     const skills = [
-        'Python', 'Rust', 'Java', 'C/C++', 'Go', 'Scala', 'C#', 'TypeScript', 'JavaScript', 'GDScript',
-        'React', 'Svelte', 'Docker', 'Node', 'PyTorch', 'TensorFlow', 'PySpark', 'OpenCV',
-        'PostgreSQL', 'MongoDB', 'SQLite', 'Google Cloud', 'Git',
+        'C#', 'C/C++', 'Docker', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud',
+        'Java', 'JavaScript', 'MongoDB', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
+        'PyTorch', 'Python', 'React', 'Rust', 'Scala', 'SQLite', 'Svelte', 'TensorFlow', 'TypeScript',
     ];
 
     return (
