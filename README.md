@@ -5,7 +5,7 @@ Personal portfolio website built with React. Features a home page with a brief o
 ## Pages
 
 - **Home** - intro, typed role animation, skills, work experience timeline, research projects
-- **Projects** - sidebar-navigated project and hobby writeups
+- **Projects** - card-based project showcase and hobby writeups
 - **Contact** - links to email, GitHub, LinkedIn, and Twitch
 
 ## Features
