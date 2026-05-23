@@ -65,6 +65,26 @@ const experience = [
         ],
     },
     {
+        company: 'Booz Allen Hamilton',
+        role: 'Software Engineering Intern',
+        period: 'May 2023 – August 2023',
+        bullets: [
+            'Developed internal web tools using React and Flask to streamline analyst workflows',
+            'Assisted in developing REST API endpoints and SQL queries for internal dashboard applications and reporting systems',
+            'Collaborated in an Agile development environment using Git, Jira, Docker, and CI/CD pipelines to support sprint-based feature delivery'
+        ],
+    },
+    {
+        company: 'DataAnnotation',
+        role: 'Freelance Software Engineer',
+        period: 'May 2022 - August 2022',
+        bullets: [
+            'Evaluated and refined AI-generated code responses across Python, JavaScript, and SQL tasks to improve model accuracy and reliability',
+            'Designed structured prompts and test cases for large language models, identifying edge cases and debugging incorrect outputs',
+            'Reviewed backend logic, API usage, and algorithmic solutions to ensure technical correctness and adherence to software engineering best practices'
+        ]
+    },
+    {
         company: 'United Radio',
         role: 'Electronics Technician',
         period: 'January 2020 – September 2020',
