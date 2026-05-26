@@ -27,7 +27,7 @@ const research = [
     {
         title: 'Handwriting to Text: CRNN + LLM Study Guide Pipeline',
         tags: ['Python', 'PyTorch', 'CRNN', 'CTC Loss', 'Llama 3.3 70B', 'Groq API'],
-        description: 'Built an end-to-end pipeline that converts handwritten student notes into structured study guides. Trained a Convolutional Recurrent Neural Network (CRNN) with CTC loss on 400k+ word images from the IAM Handwriting Database and Kaggle, achieving 12.47% Character Error Rate. Integrated Llama 3.3 70B via the Groq API for downstream summarization, reaching ROUGE-1 F1 of 0.423. Evaluated against Tesseract and BLIP-2 baselines.',
+        description: 'Built an end-to-end pipeline that converts handwritten student notes into structured study guides. Trained a Convolutional Recurrent Neural Network (CRNN) with CTC loss on 400k+ word images, learning character-level feature embeddings for sequence recognition, from the IAM Handwriting Database and Kaggle, achieving 12.47% Character Error Rate. Integrated Llama 3.3 70B via the Groq API for downstream summarization, reaching ROUGE-1 F1 of 0.423. Evaluated against Tesseract and BLIP-2 baselines.',
         reportUrl: '/handwriting.pdf',
     },
 ];
@@ -81,7 +81,7 @@ const experience = [
         bullets: [
             'Evaluated and refined AI-generated code responses across Python, JavaScript, and SQL tasks to improve model accuracy and reliability',
             'Designed structured prompts and test cases for large language models, identifying edge cases and debugging incorrect outputs',
-            'Reviewed backend logic, API usage, and algorithmic solutions to ensure technical correctness and adherence to software engineering best practices'
+            'Applied structured evaluation frameworks to assess LLM output quality, identifying failure modes across edge cases'
         ]
     },
     {
@@ -168,8 +168,8 @@ function Home() {
     }, [displayed, isDeleting, roleIndex]);
 
     const skills = [
-        'C#', 'C/C++', 'Docker', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud',
-        'Java', 'JavaScript', 'MongoDB', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
+        'Azure', 'C#', 'C/C++', 'Docker', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud',
+        'Java', 'JavaScript', 'Kubernetes', 'MongoDB', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
         'PyTorch', 'Python', 'React', 'Rust', 'Scala', 'SQLite', 'Svelte', 'TensorFlow', 'TypeScript',
     ];
 

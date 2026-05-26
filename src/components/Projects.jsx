@@ -54,13 +54,13 @@ const projects = [
     },
     {
         title: 'Social Media Site',
-        tags: ['React', 'JavaScript', 'CSS', 'Docker', 'REST API', 'Git'],
+        tags: ['React', 'JavaScript', 'CSS', 'Docker', 'Kubernetes', 'REST API', 'Git'],
         body: 'A full-stack social media web application with a custom backend API, responsive React frontend, and containerized deployment via Docker. Built to explore scalable web architecture and RESTful design patterns.',
         sectionTitle: 'What I built',
         bullets: [
             'Designed and implemented a custom backend REST API with authentication, post creation, and user follow/feed logic',
             'Built responsive React UI components for feed, profiles, and interactions',
-            'Containerized the full stack with Docker to ensure consistent local and production environments',
+            'Containerized the full stack with Docker and Kubernetes to ensure consistent local and production environments',
             'Managed the project with Git, using feature branches and pull requests for iterative development',
         ],
         link: 'https://github.com/janhnguyen/djibouti',
