@@ -34,6 +34,12 @@ const research = [
 
 const experience = [
     {
+        company: 'CACI International Inc.',
+        role: 'Full Stack Software Developer',
+        period: 'June 2026 – Present',
+        bullets: [],
+    },
+    {
         company: 'FedEx',
         role: 'Trade Operations Analyst',
         period: 'January 2026 – May 2026',
@@ -184,8 +190,8 @@ function Home() {
                         {displayed}<span className='typing-cursor'>|</span>
                     </p>
                     <p className='about-body'>
-                        CS graduate from SUNY University at Buffalo. My experience spans
-                        ML pipelines, distributed data systems, embedded systems, and full-stack development.
+                        Currently contributing as a Full Stack Software Developer at CACI International Inc.
+                        Educational and professional experiences include software development, data analysis, and project management.  
                     </p>
                     <p className='about-body'>
                         I've built RL agents, OCR pipelines, game analytics tools, and web apps. I'm comfortable jumping between
