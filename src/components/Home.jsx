@@ -8,10 +8,10 @@ import arise4 from '../assets/ARISE/IMG_2479.jpg';
 import arise5 from '../assets/ARISE/IMG_2497.jpg';
 
 const roles = [
+    'Full Stack Web Developer',
+    'Data Analyst',
+    'Adaptive Design Engineer',
     'Software Engineer',
-    'Full Stack Developer',
-    'ML & Data Engineer',
-    'Game Developer',
     'Keyboard Enthusiast',
 ];
 
@@ -102,6 +102,27 @@ const experience = [
     },
 ];
 
+const education = [
+    {
+        school: 'SUNY University at Buffalo',
+        degree: 'Bachelor of Science, Computer Science',
+        period: 'August 2021 – May 2026',
+        bullets: [
+            'Collegiate League of Legends 2022 Top 16',
+            'Relevant coursework : College Calculus 1, 2, & 3, Computer Science 1 & 2, Intro Discrete Structures, Systems Programming, Data Structures, Computer Organization, Algorithms and Complexity, Linear Algebra, Intro to Probability, Applied Probability and Statistics, Web Applications, Software Engineering Concepts, Computer Security, Distributed Systems, Applied Human-Computer Interaction, Algorithms Analysis & Design, Computer Vision & Image Processing, Reinforcement Learning, Intro to Machine Learning, Data Intensive Computing'
+        ],
+    },
+    {
+        school: 'Cicero-North Syracuse High School',
+        degree: 'High School Diploma, graduated with Honors',
+        period: 'September 2017 – June 2021',
+        bullets: [
+            '2020 Indoor Track & Field NYSPHSAA Section 3 Champion',
+            '2017-2021 Indoor & Outdoor Track & Field'
+        ],
+    }
+]
+
 function ARISEGallery({ photos }) {
     const [active, setActive] = useState(null);
 
@@ -174,8 +195,8 @@ function Home() {
     }, [displayed, isDeleting, roleIndex]);
 
     const skills = [
-        'Azure', 'C#', 'C/C++', 'Docker', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud',
-        'Java', 'JavaScript', 'Kubernetes', 'MongoDB', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
+        'Azure', 'C#', 'C/C++', 'CSS', 'Docker', 'Express', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud', 'HTML',
+        'Java', 'JavaScript', 'Kubernetes', 'MongoDB', 'MySQL', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
         'PyTorch', 'Python', 'React', 'Rust', 'Scala', 'SQLite', 'Svelte', 'TensorFlow', 'TypeScript',
     ];
 
@@ -245,8 +266,39 @@ function Home() {
                 </div>
             </section>
 
+            {/* ── Education ── */}
+            <section id='education' className='experience-section'>
+                <div className='experience-inner'>
+                    <h2 className='exp-section-heading'>Education</h2>
+                    <div className='timeline'>
+                        {education.map((job, idx) => (
+                            <div key={idx} className='exp-card'>
+                                <div className='exp-card-left'>
+                                    <div className='timeline-dot' />
+                                    {idx < education.length - 1 && <div className='timeline-line' />}
+                                </div>
+                                <div className='exp-card-body'>
+                                    <div className='exp-card-header'>
+                                        <div>
+                                            <h3 className='exp-company'>{job.school}</h3>
+                                            <p className='exp-role'>{job.degree}</p>
+                                        </div>
+                                        <span className='exp-period'>{job.period}</span>
+                                    </div>
+                                    <ul className='exp-bullets'>
+                                        {job.bullets.map((b, i) => (
+                                            <li key={i}>{b}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* ── Research ── */}
-            <section className='research-section'>
+            <section id='research' className='research-section'>
                 <div className='research-inner'>
                     <h2 className='exp-section-heading'>Research</h2>
                     <div className='research-grid'>

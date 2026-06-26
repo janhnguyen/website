@@ -43,6 +43,8 @@ function Header() {
             <nav className={`nav ${menuOpen ? 'open' : ''}`}>
                 <a href="#home"       onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
                 <a href="#experience" onClick={e => { e.preventDefault(); scrollTo('experience'); }}>Experience</a>
+                <a href="#education"  onClick={e => { e.preventDefault(); scrollTo('education'); }}>Education</a>
+                <a href="#research"   onClick={e => { e.preventDefault(); scrollTo('research'); }}>Research</a>
                 <a href="#projects"   onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
                 <a href="#contact"    onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
                 <button
