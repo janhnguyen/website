@@ -35,7 +35,7 @@ const research = [
 const experience = [
     {
         company: 'CACI International Inc.',
-        role: 'Full Stack Software Developer',
+        role: 'Software Engineer',
         period: 'June 2026 – Present',
         bullets: [],
     },
