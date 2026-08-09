@@ -37,7 +37,9 @@ const experience = [
         company: 'CACI International Inc.',
         role: 'Software Engineer',
         period: 'June 2026 – Present',
-        bullets: [],
+        bullets: [
+            'Owned full lifecycle development of a data analytics visualization tool, architecting and shipping 9 distinct features within a 4-week timeframe.'
+        ],
     },
     {
         company: 'FedEx',
