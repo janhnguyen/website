@@ -38,7 +38,8 @@ const experience = [
         role: 'Software Engineer',
         period: 'June 2026 – Present',
         bullets: [
-            'Owned full lifecycle development of a data analytics visualization tool, architecting and shipping 9 distinct features within a 4-week timeframe.'
+            'Owned full lifecycle development of a data analytics visualization tool, architecting and shipping 9 distinct features within a 4-week timeframe.',
+            'Maintained 7 different data analytics visualization tools across 2 libraries (Apache ECharts, Tabulator), modernizing, fixing issues, and adding features.'
         ],
     },
     {
@@ -177,9 +178,9 @@ function Home() {
     }, [displayed, isDeleting, roleIndex]);
 
     const skills = [
-        'Azure', 'C#', 'C/C++', 'CSS', 'Docker', 'Express', 'Flask', 'GDScript', 'Git', 'Go', 'Google Cloud', 'HTML',
-        'Java', 'JavaScript', 'Kubernetes', 'MongoDB', 'MySQL', 'Node', 'OpenCV', 'PostgreSQL', 'PySpark',
-        'PyTorch', 'Python', 'React', 'Rust', 'Scala', 'SQLite', 'Svelte', 'TensorFlow', 'TypeScript',
+        'CSS', 'Docker', 'Express', 'GDScript', 'Git', 'HTML',
+        'Java', 'JavaScript', 'Node', 'OpenCV', 'PySpark',
+        'Python', 'React', 'Rust', 'Scala', 'SQLite', 'Svelte', 'TypeScript',
     ];
 
     return (

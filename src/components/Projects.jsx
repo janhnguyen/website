@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../styling/Projects.css';
-import kbdImg1 from '../assets/keyboards/IMG_1719.jpg';
-import kbdImg2 from '../assets/keyboards/IMG_1715.jpg';
-import kbdImg3 from '../assets/keyboards/IMG_1015.jpg';
-import kbdImg4 from '../assets/keyboards/IMG_3561.jpg';
-import kbdImg5 from '../assets/keyboards/IMG_1731.jpg';
-import kbdImg6 from '../assets/keyboards/IMG_1724.jpg';
+import kbdImg1 from '../assets/keyboards/IMG_4311.jpg';
+import kbdImg2 from '../assets/keyboards/IMG_4312.jpg';
+import kbdImg3 from '../assets/keyboards/IMG_4317.jpg';
+import kbdImg4 from '../assets/keyboards/IMG_4318.jpg';
+import kbdImg5 from '../assets/keyboards/IMG_4320.jpg';
+import kbdImg6 from '../assets/keyboards/IMG_4321.jpg';
+import kbdImg7 from '../assets/keyboards/IMG_4322.jpg';
 
-const kbdPhotos = [kbdImg1, kbdImg2, kbdImg3, kbdImg4, kbdImg5, kbdImg6];
+const kbdPhotos = [kbdImg1, kbdImg2, kbdImg3, kbdImg4, kbdImg5, kbdImg6, kbdImg7];
 
 const projects = [
     {
@@ -76,7 +77,6 @@ const projects = [
             'Parses incoming chat messages and dispatches actions based on configurable command patterns',
             'Designed to run persistently in the background without interrupting the stream',
         ],
-        hobbyNote: { icon: '🎮', text: 'Built this to manage my own Twitch channel. Reached the top 0.2% of all Twitch streams in terms of metrics within a few months of going live.' },
     },
     {
         title: 'Indie Game Dev',
@@ -89,7 +89,6 @@ const projects = [
             'Wrote and ran manual test cases to catch edge cases in physics and collision handling',
             'Collaborated in a multi-developer Git workflow with branch-based feature development',
         ],
-        hobbyNote: { icon: '🕹️', text: 'Game dev is how I got into programming. I enjoy the blend of creative and technical problem-solving.' },
     },
 ];
 
@@ -165,7 +164,6 @@ function Projects() {
                             {proj.hobbyNote && (
                                 <div className='proj-hobby-note'>
                                     <span className='proj-hobby-icon'>{proj.hobbyNote.icon}</span>
-                                    <p>{proj.hobbyNote.text}</p>
                                 </div>
                             )}
                         </div>
@@ -190,15 +188,14 @@ function Projects() {
                         <p className='proj-section-title'>What goes into a build</p>
                         <ul className='proj-bullets'>
                             <li>Selecting and sourcing components: PCB, case, switches, stabilizers, and keycaps</li>
-                            <li>Modding stabilizers (lubing, clipping, wire balancing) to eliminate rattle and improve consistency</li>
+                            <li>Modding stabilizers and switches to eliminate rattle and improve consistency</li>
                             <li>Soldering switches to the PCB by hand</li>
                             <li>Acoustic tuning through foam dampening, tape mods, and switch film layering to dial in the sound profile</li>
                         </ul>
                         <p className='proj-section-title'>Some builds</p>
                         <KbdGallery photos={kbdPhotos} />
                         <div className='proj-hobby-note' style={{ marginTop: 28 }}>
-                            <span className='proj-hobby-icon'>⌨️</span>
-                            <p>My daily driver is a custom 80% build: a white anodized QK80v1 with lubed and filmed Alpaca switches and GMK Taegeukgi.</p>
+                            <p>My daily driver is a custom 75% build - A purple anodized Monokei x TGR Tomo with Epomaker Wisterias and GMK Tuzi.</p>
                         </div>
                     </div>
                 </div>
