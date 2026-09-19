@@ -36,16 +36,24 @@ const experience = [
     {
         company: 'CACI International Inc.',
         role: 'Software Engineer',
-        period: 'June 2026 – Present',
+        period: 'June 2026 - Present',
         bullets: [
             'Owned full lifecycle development of a data analytics visualization tool, architecting and shipping 9 distinct features within a 4-week timeframe.',
             'Maintained 7 different data analytics visualization tools across 2 libraries (Apache ECharts, Tabulator), modernizing, fixing issues, and adding features.'
         ],
     },
     {
+        company: 'Indera Adaptive Design',
+        role: '(Volunteer) Hardware & Software Engineer',
+        period: 'September 2026 - Present',
+        bullets: [
+            'Contributed to the development of the Arduino and ESP32 firmware devices.'
+        ]
+    },
+    {
         company: 'FedEx',
         role: 'Trade Operations Analyst',
-        period: 'January 2026 – May 2026',
+        period: 'January 2026 - May 2026',
         bullets: [
             'Built Excel automation workflows to reduce manual customs processing time by 30%.',
             'Developed reporting dashboards to track shipment exception trends and operational metrics.',
@@ -55,7 +63,7 @@ const experience = [
     {
         company: 'ARISE Adaptive Design',
         role: 'Adaptive Design Intern',
-        period: 'May 2024 – August 2024',
+        period: 'May 2024 - August 2024',
         bullets: [
             'Engineered and validated object-oriented firmware for 2 embedded systems using Arduino microcontrollers, writing unit tests in C++ across 23 test cases covering sensor thresholds, signal timing, and hardware-software integration.',
             'Reduced latency by 15% through iterative signal testing and firmware optimization, using serial debug logs to isolate and resolve bottlenecks.',
@@ -66,7 +74,7 @@ const experience = [
     {
         company: 'Randstad',
         role: 'Data Analyst Intern',
-        period: 'January 2024 – April 2024',
+        period: 'January 2024 - April 2024',
         bullets: [
             'Cleaned and validated datasets of 9,000 records using Excel and SQL, identifying and resolving 4 categories of recurring data entry errors across reporting pipelines.',
             'Built 2 standardized reporting templates that automated manual aggregation steps, reducing report turnaround time by 1 hour per cycle.',
@@ -76,7 +84,7 @@ const experience = [
     {
         company: 'United Radio',
         role: 'Electronics Technician',
-        period: 'June 2020 – September 2020',
+        period: 'June 2020 - September 2020',
         bullets: [
             'Diagnosed and repaired consumer electronics at a rate of 750 devices per week, performing circuit board-level fault analysis using multimeters.',
             'Executed component-level soldering repairs using schematics and hands-on diagnostic techniques across a high-volume repair pipeline.',
@@ -89,7 +97,7 @@ const education = [
     {
         school: 'SUNY University at Buffalo',
         degree: 'Bachelor of Science, Computer Science',
-        period: 'August 2021 – May 2026',
+        period: 'August 2021 - May 2026',
         bullets: [
             'Collegiate League of Legends 2022 Top 16',
             'Relevant coursework : College Calculus 1, 2, & 3, Computer Science 1 & 2, Intro Discrete Structures, Systems Programming, Data Structures, Computer Organization, Algorithms and Complexity, Linear Algebra, Intro to Probability, Applied Probability and Statistics, Web Applications, Software Engineering Concepts, Computer Security, Distributed Systems, Applied Human-Computer Interaction, Algorithms Analysis & Design, Computer Vision & Image Processing, Reinforcement Learning, Intro to Machine Learning, Data Intensive Computing'
@@ -98,7 +106,7 @@ const education = [
     {
         school: 'Cicero-North Syracuse High School',
         degree: 'High School Diploma, graduated with Honors',
-        period: 'September 2017 – June 2021',
+        period: 'September 2017 - June 2021',
         bullets: [
             '2020 Indoor Track & Field NYSPHSAA Section 3 Champion',
             '2017-2021 Indoor & Outdoor Track & Field'
@@ -194,7 +202,7 @@ function Home() {
                         {displayed}<span className='typing-cursor'>|</span>
                     </p>
                     <p className='about-body'>
-                        Currently contributing as a Full Stack Software Developer at CACI International Inc.
+                        Currently contributing as a Software Engineer at CACI International Inc, with a focus on front-end web application development.
                         Educational and professional experiences include software development, data analysis, and project management.  
                     </p>
                     <p className='about-body'>
