@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styling/DateIdeas.css';
+import '../styling/Scrapbook.css';
 
 import backyard from '../assets/heart/carvel/backyard.png'
 import display from '../assets/heart/carvel/display.png'
@@ -61,7 +61,7 @@ const events = [
     }
 ];
 
-function DateIdeas() {
+function Scrapbook() {
     const [activePhoto, setActivePhoto] = useState(null);
 
     useEffect(() => {
@@ -76,36 +76,36 @@ function DateIdeas() {
     }, [activePhoto]);
 
     return (
-        <main className="date-ideas-page">
-            <div className="date-ideas-content">
+        <main className="scrapbook-page">
+            <div className="scrapbook-content">
                 <section>
-                    <h1 className="date-ideas-heading">Our Story</h1>
-                    <div className="date-ideas-timeline">
+                    <h1 className="scrapbook-heading">Our Story</h1>
+                    <div className="scrapbook-timeline">
                         {events.map((event, idx) => (
-                            <article key={event.title} className="date-ideas-event">
-                                <div className="date-ideas-marker-column" aria-hidden="true">
-                                    <span className="date-ideas-marker" />
-                                    {idx < events.length - 1 && <span className="date-ideas-connector" />}
+                            <article key={event.title} className="scrapbook-event">
+                                <div className="scrapbook-marker-column" aria-hidden="true">
+                                    <span className="scrapbook-marker" />
+                                    {idx < events.length - 1 && <span className="scrapbook-connector" />}
                                 </div>
-                                <div className="date-ideas-event-content">
-                                    <div className="date-ideas-event-header">
+                                <div className="scrapbook-event-content">
+                                    <div className="scrapbook-event-header">
                                         <div>
                                             <h2>{event.title}</h2>
-                                            <p className="date-ideas-location">{event.location}</p>
+                                            <p className="scrapbook-location">{event.location}</p>
                                         </div>
-                                        <time className="date-ideas-date">{event.date}</time>
+                                        <time className="scrapbook-date">{event.date}</time>
                                     </div>
-                                    <ul className="date-ideas-details">
+                                    <ul className="scrapbook-details">
                                         {event.bullets.map((b, i) => (
                                             <li key={i}>{b}</li>
                                         ))}
                                     </ul>
                                     {event.photos && (
-                                        <div className="date-ideas-photos">
+                                        <div className="scrapbook-photos">
                                             {event.photos.map((photo, photoIndex) => (
                                                 <button
                                                     key={photo}
-                                                    className="date-ideas-photo-button"
+                                                    className="scrapbook-photo-button"
                                                     type="button"
                                                     onClick={() => setActivePhoto({
                                                         src: photo,
@@ -130,19 +130,19 @@ function DateIdeas() {
             </div>
             {activePhoto && (
                 <div
-                    className="date-ideas-lightbox"
+                    className="scrapbook-lightbox"
                     onClick={() => setActivePhoto(null)}
                     role="presentation"
                 >
                     <div
-                        className="date-ideas-lightbox-content"
+                        className="scrapbook-lightbox-content"
                         role="dialog"
                         aria-modal="true"
                         aria-label={activePhoto.alt}
                         onClick={(event) => event.stopPropagation()}
                     >
                         <button
-                            className="date-ideas-lightbox-close"
+                            className="scrapbook-lightbox-close"
                             type="button"
                             onClick={() => setActivePhoto(null)}
                             aria-label="Close enlarged photo"
@@ -157,4 +157,4 @@ function DateIdeas() {
     );
 }
 
-export default DateIdeas;
+export default Scrapbook;

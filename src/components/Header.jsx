@@ -55,7 +55,7 @@ function Header() {
                 <a href="/#research"   onClick={e => { e.preventDefault(); scrollTo('research'); }}>Research</a>
                 <a href="/#projects"   onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
                 <a href="/#contact"    onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
-                <Link to="/date-ideas" onClick={() => setMenuOpen(false)} aria-label="Date Ideas" title="Date Ideas">
+                <Link to="/scrapbook" onClick={() => setMenuOpen(false)} aria-label="Scrapbook" title="Scrapbook">
                     ♥
                 </Link>
                 <button

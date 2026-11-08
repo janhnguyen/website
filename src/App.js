@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
-import DateIdeas from './components/DateIdeas';
+import Scrapbook from './components/Scrapbook';
 
 function App() {
   const location = useLocation();
@@ -38,7 +38,7 @@ function App() {
             </>
           }
         />
-        <Route path="/date-ideas" element={<DateIdeas />} />
+        <Route path="/scrapbook" element={<Scrapbook />} />
       </Routes>
       <Footer />
     </div>

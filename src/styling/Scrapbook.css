@@ -1,14 +1,14 @@
-.date-ideas-page {
+.scrapbook-page {
     min-height: 100vh;
     padding: 130px 8% 80px;
 }
 
-.date-ideas-content {
+.scrapbook-content {
     max-width: 860px;
     margin: 0 auto;
 }
 
-.date-ideas-heading {
+.scrapbook-heading {
     margin-bottom: 48px;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 800;
@@ -18,24 +18,24 @@
     background-clip: text;
 }
 
-.date-ideas-timeline {
+.scrapbook-timeline {
     display: flex;
     flex-direction: column;
 }
 
-.date-ideas-event {
+.scrapbook-event {
     display: flex;
     gap: 24px;
 }
 
-.date-ideas-marker-column {
+.scrapbook-marker-column {
     display: flex;
     flex: 0 0 20px;
     flex-direction: column;
     align-items: center;
 }
 
-.date-ideas-marker {
+.scrapbook-marker {
     width: 14px;
     height: 14px;
     margin-top: 6px;
@@ -45,7 +45,7 @@
     box-shadow: 0 0 10px rgba(196, 149, 106, 0.35);
 }
 
-.date-ideas-connector {
+.scrapbook-connector {
     width: 2px;
     min-height: 40px;
     flex: 1;
@@ -53,7 +53,7 @@
     background: linear-gradient(to bottom, rgba(196, 149, 106, 0.4), rgba(155, 112, 69, 0.15));
 }
 
-.date-ideas-event-content {
+.scrapbook-event-content {
     margin-top: 10px;
     min-width: 0;
     flex: 1;
@@ -64,12 +64,12 @@
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.date-ideas-event-content:hover {
+.scrapbook-event-content:hover {
     border-color: rgba(196, 149, 106, 0.45);
     box-shadow: 0 6px 24px rgba(196, 149, 106, 0.1);
 }
 
-.date-ideas-event-header {
+.scrapbook-event-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -78,7 +78,7 @@
     margin: 24px 0 12px;
 }
 
-.date-ideas-event-header h2 {
+.scrapbook-event-header h2 {
     margin: 0 0 4px;
     color: var(--text-primary);
     font-size: 1.15rem;
@@ -86,7 +86,7 @@
     text-align: left;
 }
 
-.date-ideas-location {
+.scrapbook-location {
     margin: 0;
     color: var(--accent-cyan);
     font-size: 0.92rem;
@@ -94,7 +94,7 @@
     text-align: left;
 }
 
-.date-ideas-date {
+.scrapbook-date {
     flex-shrink: 0;
     padding: 4px 12px;
     border: 1px solid var(--border);
@@ -105,7 +105,7 @@
     white-space: nowrap;
 }
 
-.date-ideas-details {
+.scrapbook-details {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -114,7 +114,7 @@
     list-style: none;
 }
 
-.date-ideas-details li {
+.scrapbook-details li {
     display: flex;
     gap: 12px;
     color: var(--text-secondary);
@@ -123,21 +123,21 @@
     text-align: left;
 }
 
-.date-ideas-details li::before {
+.scrapbook-details li::before {
     flex-shrink: 0;
     margin-top: 2px;
     color: var(--accent-purple);
     content: '▸';
 }
 
-.date-ideas-photos {
+.scrapbook-photos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
     margin-top: 20px;
 }
 
-.date-ideas-photo-button {
+.scrapbook-photo-button {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -149,7 +149,7 @@
     cursor: zoom-in;
 }
 
-.date-ideas-photo-button img {
+.scrapbook-photo-button img {
     display: block;
     width: 100%;
     height: 100%;
@@ -157,16 +157,16 @@
     transition: transform 0.25s ease;
 }
 
-.date-ideas-photo-button:hover img {
+.scrapbook-photo-button:hover img {
     transform: scale(1.05);
 }
 
-.date-ideas-photo-button:focus-visible {
+.scrapbook-photo-button:focus-visible {
     outline: 2px solid var(--accent-purple);
     outline-offset: 3px;
 }
 
-.date-ideas-lightbox {
+.scrapbook-lightbox {
     position: fixed;
     inset: 0;
     z-index: 2000;
@@ -175,16 +175,16 @@
     justify-content: center;
     padding: 24px;
     background: rgba(0, 0, 0, 0.88);
-    animation: date-ideas-lightbox-fade-in 0.2s ease;
+    animation: scrapbook-lightbox-fade-in 0.2s ease;
 }
 
-.date-ideas-lightbox-content {
+.scrapbook-lightbox-content {
     position: relative;
     max-width: 90vw;
     max-height: 90vh;
 }
 
-.date-ideas-lightbox-content img {
+.scrapbook-lightbox-content img {
     display: block;
     max-width: 90vw;
     max-height: 90vh;
@@ -193,7 +193,7 @@
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
 }
 
-.date-ideas-lightbox-close {
+.scrapbook-lightbox-close {
     position: absolute;
     top: -16px;
     right: -16px;
@@ -209,44 +209,44 @@
     cursor: pointer;
 }
 
-.date-ideas-lightbox-close:hover {
+.scrapbook-lightbox-close:hover {
     background: rgba(196, 149, 106, 0.55);
 }
 
-@keyframes date-ideas-lightbox-fade-in {
+@keyframes scrapbook-lightbox-fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
 @media (max-width: 600px) {
-    .date-ideas-page {
+    .scrapbook-page {
         padding: 110px 6% 60px;
     }
 
-    .date-ideas-heading {
+    .scrapbook-heading {
         margin-bottom: 32px;
     }
 
-    .date-ideas-event {
+    .scrapbook-event {
         gap: 14px;
     }
 
-    .date-ideas-event-content {
+    .scrapbook-event-content {
         padding: 0 16px 24px;
     }
 
-    .date-ideas-event-header {
+    .scrapbook-event-header {
         flex-direction: column;
         align-items: flex-start;
         margin-top: 18px;
     }
 
-    .date-ideas-photos {
+    .scrapbook-photos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
     }
 
-    .date-ideas-lightbox-close {
+    .scrapbook-lightbox-close {
         top: 8px;
         right: 8px;
     }
