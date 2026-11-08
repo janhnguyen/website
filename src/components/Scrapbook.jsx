@@ -2,9 +2,30 @@ import { useEffect, useState } from 'react';
 import '../styling/Scrapbook.css';
 import { supabase, supabaseConfigError } from '../supabaseClient';
 
+import bags from '../assets/heart/destinyUSAMall/bags.png'
+import books from '../assets/heart/destinyUSAMall/books.png'
+import chiikawa from '../assets/heart/destinyUSAMall/chiikawa.png'
+import ikea from '../assets/heart/destinyUSAMall/ikea.png'
+import minecraftPlushies from '../assets/heart/destinyUSAMall/minecraftPlushies.png'
+import mirror from '../assets/heart/destinyUSAMall/mirror.png'
+import moreBooks from '../assets/heart/destinyUSAMall/moreBooks.png'
+import pickles from '../assets/heart/destinyUSAMall/pickles.png'
+import soap from '../assets/heart/destinyUSAMall/soap.png'
+
+import nigiri from '../assets/heart/charcoalGrill/nigiri.png'
+import threeBigBacks from '../assets/heart/charcoalGrill/threeBigBacks.png'
+import yummy from '../assets/heart/charcoalGrill/yummy.png'
+
+import bigbacks from '../assets/heart/sktrox/bigbacks.png'
+import blossom1 from '../assets/heart/sktrox/blossom.png'
+import blossom2 from '../assets/heart/sktrox/blossom2.png'
+import blossom3 from '../assets/heart/sktrox/blossom3.png'
+import cake from '../assets/heart/sktrox/cake.png'
+
 import backyard from '../assets/heart/carvel/backyard.png'
 import display from '../assets/heart/carvel/display.png'
 import lunch from '../assets/heart/carvel/lunch.png'
+
 import lakeside from '../assets/heart/onondagaLake/lakeside.png'
 import pathway from '../assets/heart/onondagaLake/pathway.png'
 import redChili from '../assets/heart/onondagaLake/redChili.png'
@@ -13,11 +34,16 @@ import stupidBike from '../assets/heart/onondagaLake/stupidBike.png'
 import sunset from '../assets/heart/onondagaLake/sunset.png'
 import swings from '../assets/heart/onondagaLake/swings.png'
 import trees from '../assets/heart/onondagaLake/trees.png'
+
 import blossom from '../assets/heart/secondDate/blossom.png'
 import cats from '../assets/heart/secondDate/cats.png'
+
 import gift from '../assets/heart/firstDate/gift.png'
 import poke from '../assets/heart/firstDate/poke.png'
 
+const destinyUSAMallPhotos = [bags, books, chiikawa, ikea, minecraftPlushies, mirror, moreBooks, pickles, soap]
+const charcoalGrillPhotos = [nigiri, threeBigBacks, yummy]
+const sktroxPhotos = [bigbacks, blossom1, blossom2, blossom3, cake]
 const carvelPhotos = [backyard, display, lunch]
 const onondagaLakePhotos = [lakeside, pathway, redChili, shore, stupidBike, sunset, swings, trees]
 const secondDatePhotos = [blossom, cats]
@@ -34,6 +60,33 @@ const getErrorMessage = error => (
 );
 
 const events = [
+    {
+        title: 'Destiny USA Trip',
+        location: 'Syracuse, New York',
+        date: 'November 7, 2026',
+        bullets: [
+            'Shopping & exploring'
+        ],
+        photos: destinyUSAMallPhotos
+    },
+    {
+        title: 'Charcoal Grill & Modern Buffet',
+        location: 'Syracuse, New York',
+        date: 'November 7, 2026',
+        bullets: [
+            '3 bigbacks and an (un)limited amount of food'
+        ],
+        photos: charcoalGrillPhotos
+    },
+    {
+        title: 'Bigbacking Over the Cuse',
+        location: 'Syracuse, New York',
+        date: 'November 6, 2026',
+        bullets: [
+            'Rewatching SKT vs ROX while bigbacking wings, pizza, cake, and soju'
+        ],
+        photos: sktroxPhotos
+    },
     {
         title: 'Carvel Excursion',
         location: 'North Syracuse, New York',
