@@ -22,6 +22,12 @@ const onondagaLakePhotos = [lakeside, pathway, redChili, shore, stupidBike, suns
 const secondDatePhotos = [blossom, cats]
 const firstDatePhotos = [gift, poke]
 
+const todoCategories = [
+    'Activities',
+    'Restaurants/cafes/eateries',
+    'Movies/Shows to watch',
+];
+
 const events = [
     {
         title: 'Carvel Excursion',
@@ -63,6 +69,10 @@ const events = [
 
 function Scrapbook() {
     const [activePhoto, setActivePhoto] = useState(null);
+    const [todos, setTodos] = useState([]);
+    const [newTodo, setNewTodo] = useState('');
+    const [newTodoCategory, setNewTodoCategory] = useState(todoCategories[0]);
+    const [nextTodoId, setNextTodoId] = useState(0);
 
     useEffect(() => {
         if (!activePhoto) return undefined;
@@ -75,9 +85,98 @@ function Scrapbook() {
         return () => window.removeEventListener('keydown', closeOnEscape);
     }, [activePhoto]);
 
+    const addTodo = (event) => {
+        event.preventDefault();
+        const text = newTodo.trim();
+        if (!text) return;
+
+        setTodos(current => [...current, {
+            id: nextTodoId,
+            text,
+            category: newTodoCategory,
+            completed: false,
+        }]);
+        setNextTodoId(id => id + 1);
+        setNewTodo('');
+    };
+
     return (
         <main className="scrapbook-page">
             <div className="scrapbook-content">
+                <section className="scrapbook-todo">
+                    <h2 className="scrapbook-todo-heading">To-Do List</h2>
+                    <form className="scrapbook-todo-form" onSubmit={addTodo}>
+                        <label className="scrapbook-sr-only" htmlFor="scrapbook-todo-input">
+                            Add a date plan
+                        </label>
+                        <input
+                            id="scrapbook-todo-input"
+                            type="text"
+                            value={newTodo}
+                            onChange={event => setNewTodo(event.target.value)}
+                        />
+                        <label className="scrapbook-sr-only" htmlFor="scrapbook-todo-category">
+                            Choose a category
+                        </label>
+                        <div className="scrapbook-category-select">
+                            <select
+                                id="scrapbook-todo-category"
+                                value={newTodoCategory}
+                                onChange={event => setNewTodoCategory(event.target.value)}
+                            >
+                                {todoCategories.map(category => (
+                                    <option key={category} value={category}>{category}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <button type="submit" disabled={!newTodo.trim()}>
+                            Add
+                        </button>
+                    </form>
+                    {todos.length > 0 ? (
+                        <div className="scrapbook-todo-categories">
+                            {todoCategories.map(category => {
+                                const categoryTodos = todos.filter(todo => todo.category === category);
+                                return (
+                                    <section key={category} className="scrapbook-todo-category">
+                                        <h3>{category}</h3>
+                                        {categoryTodos.length > 0 ? (
+                                            <ul className="scrapbook-todo-list">
+                                                {categoryTodos.map(todo => (
+                                                    <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+                                                        <label>
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={todo.completed}
+                                                                onChange={() => setTodos(current => current.map(item => (
+                                                                    item.id === todo.id
+                                                                        ? { ...item, completed: !item.completed }
+                                                                        : item
+                                                                )))}
+                                                            />
+                                                            <span>{todo.text}</span>
+                                                        </label>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setTodos(current => current.filter(item => item.id !== todo.id))}
+                                                            aria-label={`Remove ${todo.text}`}
+                                                        >
+                                                            ×
+                                                        </button>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className="scrapbook-todo-empty">No ideas yet.</p>
+                                        )}
+                                    </section>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <p className="scrapbook-todo-empty"></p>
+                    )}
+                </section>
                 <section>
                     <h1 className="scrapbook-heading">Our Story</h1>
                     <div className="scrapbook-timeline">

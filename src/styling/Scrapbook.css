@@ -8,6 +8,178 @@
     margin: 0 auto;
 }
 
+.scrapbook-todo {
+    margin-bottom: 56px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.scrapbook-todo-heading {
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.scrapbook-todo-form {
+    display: flex;
+    gap: 10px;
+}
+
+.scrapbook-todo-form input[type="text"],
+.scrapbook-todo-form select {
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font: inherit;
+}
+
+.scrapbook-todo-form input[type="text"] {
+    flex: 1;
+}
+
+.scrapbook-category-select {
+    position: relative;
+    max-width: 230px;
+    flex-shrink: 0;
+}
+
+.scrapbook-category-select::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid var(--text-secondary);
+    border-bottom: 1.5px solid var(--text-secondary);
+    content: '';
+    pointer-events: none;
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.scrapbook-category-select:has(select:open)::after {
+    transform: translateY(-25%) rotate(225deg);
+}
+
+.scrapbook-category-select select {
+    width: 100%;
+    max-width: 230px;
+    appearance: none;
+    padding-right: 34px;
+}
+
+.scrapbook-todo-form input[type="text"]:focus-visible,
+.scrapbook-category-select select:focus-visible,
+.scrapbook-todo-form button:focus-visible,
+.scrapbook-todo-list button:focus-visible {
+    outline: 2px solid var(--accent-purple);
+    outline-offset: 2px;
+}
+
+.scrapbook-todo-form button {
+    padding: 0 18px;
+    border: 1px solid var(--accent-purple);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.scrapbook-todo-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.scrapbook-todo-empty {
+    margin-top: 14px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.scrapbook-todo-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.scrapbook-todo-category h3 {
+    color: var(--accent-cyan);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.scrapbook-todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.scrapbook-todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+.scrapbook-todo-list li label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.scrapbook-todo-category .scrapbook-todo-empty {
+    margin-top: 8px;
+}
+
+.scrapbook-todo-list input[type="checkbox"] {
+    accent-color: var(--accent-purple);
+}
+
+.scrapbook-todo-list li.completed span {
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.scrapbook-todo-list button {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.scrapbook-todo-list button:hover {
+    background: rgba(196, 149, 106, 0.1);
+    color: var(--text-primary);
+}
+
+.scrapbook-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
 .scrapbook-heading {
     margin-bottom: 48px;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -225,6 +397,28 @@
 
     .scrapbook-heading {
         margin-bottom: 32px;
+    }
+
+    .scrapbook-todo {
+        margin-bottom: 40px;
+        padding: 18px;
+    }
+
+    .scrapbook-todo-form {
+        flex-wrap: wrap;
+    }
+
+    .scrapbook-todo-form input[type="text"] {
+        flex-basis: 100%;
+    }
+
+    .scrapbook-category-select {
+        max-width: none;
+        flex: 0 1 auto;
+    }
+
+    .scrapbook-category-select select {
+        max-width: min(230px, 60vw);
     }
 
     .scrapbook-event {
