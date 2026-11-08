@@ -38,8 +38,7 @@ const experience = [
         role: 'Software Engineer',
         period: 'June 2026 - Present',
         bullets: [
-            'Owned full lifecycle development of a data analytics visualization tool, architecting and shipping 9 distinct features within a 4-week timeframe.',
-            'Maintained 7 different data analytics visualization tools across 2 libraries (Apache ECharts, Tabulator), modernizing, fixing issues, and adding features.'
+            'Happily breaking, fixing, testing, and building things.'
         ],
     },
     {
@@ -47,7 +46,7 @@ const experience = [
         role: '(Volunteer) Hardware & Software Engineer',
         period: 'September 2026 - Present',
         bullets: [
-            'Contributed to the development of the Arduino and ESP32 firmware devices.'
+            'Contributed to the development of devices using the Arduino and ESP32 modules to build powered, mobility wheelchairs for children in need.'
         ]
     },
     {

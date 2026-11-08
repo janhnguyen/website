@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styling/Header.css';
 
 function Header() {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [dark, setDark] = useState(
         () => document.documentElement.getAttribute('data-theme') === 'dark'
@@ -30,6 +33,11 @@ function Header() {
     }, [menuOpen]);
 
     const scrollTo = (id) => {
+        if (location.pathname !== '/') {
+            navigate(`/#${id}`);
+            setMenuOpen(false);
+            return;
+        }
         const el = document.getElementById(id);
         if (!el) return;
         const top = el.getBoundingClientRect().top + window.scrollY - 70;
@@ -41,12 +49,15 @@ function Header() {
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
             <div className="logo" onClick={() => scrollTo('home')} style={{ cursor: 'pointer' }}>Jason Nguyen</div>
             <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-                <a href="#home"       onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
-                <a href="#experience" onClick={e => { e.preventDefault(); scrollTo('experience'); }}>Experience</a>
-                <a href="#education"  onClick={e => { e.preventDefault(); scrollTo('education'); }}>Education</a>
-                <a href="#research"   onClick={e => { e.preventDefault(); scrollTo('research'); }}>Research</a>
-                <a href="#projects"   onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
-                <a href="#contact"    onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
+                <a href="/#home"       onClick={e => { e.preventDefault(); scrollTo('home'); }}>Home</a>
+                <a href="/#experience" onClick={e => { e.preventDefault(); scrollTo('experience'); }}>Experience</a>
+                <a href="/#education"  onClick={e => { e.preventDefault(); scrollTo('education'); }}>Education</a>
+                <a href="/#research"   onClick={e => { e.preventDefault(); scrollTo('research'); }}>Research</a>
+                <a href="/#projects"   onClick={e => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
+                <a href="/#contact"    onClick={e => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
+                <Link to="/date-ideas" onClick={() => setMenuOpen(false)} aria-label="Date Ideas" title="Date Ideas">
+                    ♥
+                </Link>
                 <button
                     className="theme-toggle"
                     onClick={() => setDark(d => !d)}

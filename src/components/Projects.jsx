@@ -7,8 +7,10 @@ import kbdImg4 from '../assets/keyboards/IMG_4318.jpg';
 import kbdImg5 from '../assets/keyboards/IMG_4320.jpg';
 import kbdImg6 from '../assets/keyboards/IMG_4321.jpg';
 import kbdImg7 from '../assets/keyboards/IMG_4322.jpg';
+import kbdImg8 from '../assets/keyboards/Rubrejanes.png';
+import kbdImg9 from '../assets/keyboards/RubrejanesBack.png';
 
-const kbdPhotos = [kbdImg1, kbdImg2, kbdImg3, kbdImg4, kbdImg5, kbdImg6, kbdImg7];
+const kbdPhotos = [kbdImg1, kbdImg2, kbdImg3, kbdImg4, kbdImg5, kbdImg6, kbdImg7, kbdImg8, kbdImg9];
 
 const projects = [
     {
@@ -195,7 +197,7 @@ function Projects() {
                         <p className='proj-section-title'>Some builds</p>
                         <KbdGallery photos={kbdPhotos} />
                         <div className='proj-hobby-note' style={{ marginTop: 28 }}>
-                            <p>My daily driver is a custom 75% build - A purple anodized Monokei x TGR Tomo with Epomaker Wisterias and GMK Tuzi.</p>
+                            <p>My daily driver is a custom 80% build - A TGR Jane v3 Rubrehose Edition.</p>
                         </div>
                     </div>
                 </div>
