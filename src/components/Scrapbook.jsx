@@ -323,9 +323,7 @@ function Scrapbook() {
                                                             onClick={() => removeTodo(todo)}
                                                             disabled={isMutatingTodos}
                                                             aria-label={`Remove ${todo.title}`}
-                                                        >
-                                                            ×
-                                                        </button>
+                                                        >x</button>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -391,26 +389,20 @@ function Scrapbook() {
                 </section>
             </div>
             {activePhoto && (
-                <div
-                    className="scrapbook-lightbox"
+                <div className="scrapbook-lightbox"
                     onClick={() => setActivePhoto(null)}
-                    role="presentation"
-                >
-                    <div
-                        className="scrapbook-lightbox-content"
+                    role="presentation">
+                    <div className="scrapbook-lightbox-content"
                         role="dialog"
                         aria-modal="true"
                         aria-label={activePhoto.alt}
-                        onClick={(event) => event.stopPropagation()}
-                    >
+                        onClick={(event) => event.stopPropagation()}>
                         <button
                             className="scrapbook-lightbox-close"
                             type="button"
                             onClick={() => setActivePhoto(null)}
                             aria-label="Close enlarged photo"
-                        >
-                            ×
-                        </button>
+                        >x</button>
                         <img src={activePhoto.src} alt={activePhoto.alt} />
                     </div>
                 </div>
