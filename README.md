@@ -20,3 +20,4 @@ Personal portfolio website built with React. Features a home page with a brief o
 - React (Create React App)
 - CSS custom properties for theming
 - React Router for client-side routing
+- Supabase for the shared scrapbook to-do list

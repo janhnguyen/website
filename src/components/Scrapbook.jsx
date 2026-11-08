@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../styling/Scrapbook.css';
+import { supabase, supabaseConfigError } from '../supabaseClient';
 
 import backyard from '../assets/heart/carvel/backyard.png'
 import display from '../assets/heart/carvel/display.png'
@@ -27,6 +28,10 @@ const todoCategories = [
     'Restaurants/cafes/eateries',
     'Movies/Shows to watch',
 ];
+
+const getErrorMessage = error => (
+    error && typeof error.message === 'string' ? error.message : String(error)
+);
 
 const events = [
     {
@@ -72,7 +77,9 @@ function Scrapbook() {
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
     const [newTodoCategory, setNewTodoCategory] = useState(todoCategories[0]);
-    const [nextTodoId, setNextTodoId] = useState(0);
+    const [isLoadingTodos, setIsLoadingTodos] = useState(true);
+    const [isMutatingTodos, setIsMutatingTodos] = useState(false);
+    const [todoError, setTodoError] = useState(null);
 
     useEffect(() => {
         if (!activePhoto) return undefined;
@@ -85,19 +92,119 @@ function Scrapbook() {
         return () => window.removeEventListener('keydown', closeOnEscape);
     }, [activePhoto]);
 
-    const addTodo = (event) => {
+    useEffect(() => {
+        let isActive = true;
+
+        const loadTodos = async () => {
+            if (!supabase) {
+                setTodoError(supabaseConfigError);
+                setIsLoadingTodos(false);
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase
+                    .from('scrapbook_todos')
+                    .select('id, title, category, completed')
+                    .order('created_at', { ascending: false });
+
+                if (!isActive) return;
+                if (error) {
+                    setTodoError(`Could not load date ideas: ${getErrorMessage(error)}`);
+                } else {
+                    setTodos(data);
+                }
+            } catch (error) {
+                if (isActive) setTodoError(`Could not load date ideas: ${getErrorMessage(error)}`);
+            } finally {
+                if (isActive) setIsLoadingTodos(false);
+            }
+        };
+
+        loadTodos();
+        return () => {
+            isActive = false;
+        };
+    }, []);
+
+    const addTodo = async (event) => {
         event.preventDefault();
         const text = newTodo.trim();
-        if (!text) return;
+        if (!text || !supabase || isMutatingTodos) return;
 
-        setTodos(current => [...current, {
-            id: nextTodoId,
-            text,
-            category: newTodoCategory,
-            completed: false,
-        }]);
-        setNextTodoId(id => id + 1);
-        setNewTodo('');
+        setIsMutatingTodos(true);
+        setTodoError(null);
+        try {
+            const { data, error } = await supabase
+                .from('scrapbook_todos')
+                .insert({ title: text, category: newTodoCategory })
+                .select('id, title, category, completed')
+                .single();
+
+            if (error) {
+                setTodoError(`Could not add date idea: ${getErrorMessage(error)}`);
+                return;
+            }
+
+            setTodos(current => [data, ...current]);
+            setNewTodo('');
+        } catch (error) {
+            setTodoError(`Could not add date idea: ${getErrorMessage(error)}`);
+        } finally {
+            setIsMutatingTodos(false);
+        }
+    };
+
+    const toggleTodo = async (todo) => {
+        if (!supabase || isMutatingTodos) return;
+
+        setIsMutatingTodos(true);
+        setTodoError(null);
+        try {
+            const { data, error } = await supabase
+                .from('scrapbook_todos')
+                .update({ completed: !todo.completed })
+                .eq('id', todo.id)
+                .select('id, title, category, completed')
+                .single();
+
+            if (error) {
+                setTodoError(`Could not update date idea: ${getErrorMessage(error)}`);
+                return;
+            }
+
+            setTodos(current => current.map(item => item.id === todo.id ? data : item));
+        } catch (error) {
+            setTodoError(`Could not update date idea: ${getErrorMessage(error)}`);
+        } finally {
+            setIsMutatingTodos(false);
+        }
+    };
+
+    const removeTodo = async (todo) => {
+        if (!supabase || isMutatingTodos) return;
+
+        setIsMutatingTodos(true);
+        setTodoError(null);
+        try {
+            const { error } = await supabase
+                .from('scrapbook_todos')
+                .delete()
+                .eq('id', todo.id)
+                .select('id')
+                .single();
+
+            if (error) {
+                setTodoError(`Could not remove date idea: ${getErrorMessage(error)}`);
+                return;
+            }
+
+            setTodos(current => current.filter(item => item.id !== todo.id));
+        } catch (error) {
+            setTodoError(`Could not remove date idea: ${getErrorMessage(error)}`);
+        } finally {
+            setIsMutatingTodos(false);
+        }
     };
 
     return (
@@ -112,6 +219,7 @@ function Scrapbook() {
                         <input
                             id="scrapbook-todo-input"
                             type="text"
+                            maxLength={200}
                             value={newTodo}
                             onChange={event => setNewTodo(event.target.value)}
                         />
@@ -122,6 +230,7 @@ function Scrapbook() {
                             <select
                                 id="scrapbook-todo-category"
                                 value={newTodoCategory}
+                                disabled={isLoadingTodos || isMutatingTodos}
                                 onChange={event => setNewTodoCategory(event.target.value)}
                             >
                                 {todoCategories.map(category => (
@@ -129,11 +238,14 @@ function Scrapbook() {
                                 ))}
                             </select>
                         </div>
-                        <button type="submit" disabled={!newTodo.trim()}>
+                        <button type="submit" disabled={!newTodo.trim() || isLoadingTodos || isMutatingTodos}>
                             Add
                         </button>
                     </form>
-                    {todos.length > 0 ? (
+                    {todoError && <p className="scrapbook-todo-error" role="alert">{todoError}</p>}
+                    {isLoadingTodos ? (
+                        <p className="scrapbook-todo-empty" role="status">Loading date ideas...</p>
+                    ) : todos.length > 0 ? (
                         <div className="scrapbook-todo-categories">
                             {todoCategories.map(category => {
                                 const categoryTodos = todos.filter(todo => todo.category === category);
@@ -148,18 +260,16 @@ function Scrapbook() {
                                                             <input
                                                                 type="checkbox"
                                                                 checked={todo.completed}
-                                                                onChange={() => setTodos(current => current.map(item => (
-                                                                    item.id === todo.id
-                                                                        ? { ...item, completed: !item.completed }
-                                                                        : item
-                                                                )))}
+                                                                disabled={isMutatingTodos}
+                                                                onChange={() => toggleTodo(todo)}
                                                             />
-                                                            <span>{todo.text}</span>
+                                                            <span>{todo.title}</span>
                                                         </label>
                                                         <button
                                                             type="button"
-                                                            onClick={() => setTodos(current => current.filter(item => item.id !== todo.id))}
-                                                            aria-label={`Remove ${todo.text}`}
+                                                            onClick={() => removeTodo(todo)}
+                                                            disabled={isMutatingTodos}
+                                                            aria-label={`Remove ${todo.title}`}
                                                         >
                                                             ×
                                                         </button>

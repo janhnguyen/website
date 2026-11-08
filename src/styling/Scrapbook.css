@@ -73,6 +73,18 @@
     padding-right: 34px;
 }
 
+.scrapbook-category-select select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.scrapbook-todo-error {
+    margin-top: 14px;
+    color: #b42318;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 .scrapbook-todo-form input[type="text"]:focus-visible,
 .scrapbook-category-select select:focus-visible,
 .scrapbook-todo-form button:focus-visible,
@@ -168,6 +180,11 @@
 .scrapbook-todo-list button:hover {
     background: rgba(196, 149, 106, 0.1);
     color: var(--text-primary);
+}
+
+.scrapbook-todo-list button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .scrapbook-sr-only {
